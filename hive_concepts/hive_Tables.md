@@ -27,29 +27,3 @@ Virtual tables, also known as views, are not actual tables, but rather a virtual
 ## Conclusion
 
 Hive tables are a powerful tool for organizing and managing data in Hadoop. By understanding the different types of Hive tables, you can choose the appropriate table type for your data and improve query performance. Managed tables, external tables, partitioned tables, bucketed tables, and virtual tables all have their own unique advantages and use cases.
-
----
-
-### Visuals
-
-Here are some visuals to help you better understand the different types of Hive tables:
-
-#### Managed Table
-
-![Managed Table](https://i.imgur.com/gQXGLLG.png)
-
-In a managed table, the data and metadata are both stored in the Hive Warehouse directory.
-
-#### External Table
-
-![External Table](https://i.imgur.com/Q8J5l4K.png)
-
-In an external table, only the metadata is stored in Hive, while the actual data is stored outside of Hive.
-
-#### Partitioned Table
-
-![Partitioned Table](https://i.imgur.com/ZfX35kz.png)
-
-In a partitioned table, the data is divided into partitions based on a specific column or set of columns.
-
-#### Bucketed
