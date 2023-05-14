@@ -1,5 +1,5 @@
 # Databricks notebook source
-# MAGIC %run "/Lending_Club/adhoc/Call_functions_variables"
+# MAGIC %run "/Repos/Big_Data_Project/Lending_Club/adhoc/Call_functions_variables"
 
 # COMMAND ----------
 
@@ -63,3 +63,11 @@ status_loan=dbutils.notebook.run(f"{cleanedScript_folder_path}DataCleaning_Inves
 
 if (status_loan == "executed investors job"):
     print("Lending loan investors job completed successfully")
+
+# COMMAND ----------
+
+# dbutils.notebook.entry_point.getDbutils().notebook().getContext().notebookPath().get()
+
+# COMMAND ----------
+
+

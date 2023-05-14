@@ -1,7 +1,7 @@
 # Databricks notebook source
 # Modified Client ID
 storage_account_name = "financestoragebig2023"
-client_id            = ""
+client_id            = "369c15e7-74ea-447d-8348-b088453c3ee5"
 tenant_id            = "a9a1ad60-0851-40df-8e61-d9dd36cf0e8b"
 client_secret        = "OI78Q~lRMsO-7ICQwe5sKY3CZka3YaXVsBkSWbMl"
 
@@ -63,7 +63,3 @@ display(dbutils.fs.ls("/mnt/financestoragebig2023/"))
 
 #listing files inside container
 display(dbutils.fs.ls("/mnt/financestoragebig2023/cleaned-data"))
-
-# COMMAND ----------
-
-

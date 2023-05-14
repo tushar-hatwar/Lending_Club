@@ -40,7 +40,3 @@ dbutils.notebook.entry_point.getDbutils().notebook().getContext().notebookPath()
 # COMMAND ----------
 
 # display(dbutils.fs.ls("/mnt/datasetbigdata/cleaned-data/lending_loan/account_details"))
-
-# COMMAND ----------
-
-

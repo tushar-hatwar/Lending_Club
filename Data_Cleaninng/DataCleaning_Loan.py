@@ -32,7 +32,7 @@ from pyspark.sql.functions import col, concat, current_timestamp,regexp_replace,
 
 # COMMAND ----------
 
-# MAGIC %run "/Lending_Club/adhoc/Call_functions_variables"
+# MAGIC %run "/Repos/Big_Data_Project/Lending_Club/adhoc/Call_functions_variables"
 
 # COMMAND ----------
 
