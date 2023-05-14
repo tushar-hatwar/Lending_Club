@@ -10,7 +10,8 @@
 
 -- COMMAND ----------
 
--- MAGIC %run "/Lending_Club/adhoc/Call_functions_variables"
+--command to run call_function_variables to get all the files/folders path
+%run "/Lending_Club/adhoc/Call_functions_variables"
 
 -- COMMAND ----------
 
