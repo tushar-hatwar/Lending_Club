@@ -21,7 +21,8 @@ excellent_grade="A"
 
 # COMMAND ----------
 
-# MAGIC %run "/Lending_Club/adhoc/Call_functions_variables"
+# Run call function varibles for getting all the paths 
+%run "/Lending_Club/adhoc/Call_functions_variables"
 
 # COMMAND ----------
 
