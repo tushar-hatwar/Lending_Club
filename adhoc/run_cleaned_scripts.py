@@ -67,7 +67,3 @@ if (status_loan == "executed investors job"):
 # COMMAND ----------
 
 # dbutils.notebook.entry_point.getDbutils().notebook().getContext().notebookPath().get()
-
-# COMMAND ----------
-
-

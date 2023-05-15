@@ -12,10 +12,12 @@ processed_file_path="/mnt/financestoragebig2023/processed-data/pre-prod/lending_
 
 # COMMAND ----------
 
-# cleanedScript_folder_path="/Lending_Club/Data_Cleaning/"  
+# Data Cleaning folder Path in Azure Databricks
+cleanedScript_folder_path="/Repos/Big_Data_Project/Lending_Club/Data_Cleaning/"  
 
 # COMMAND ----------
 
+# Path Cleaned Files which are stored in Azure Blob Storage after Cleaning Process
 cleanedFiles_file_path="/mnt/financestoragebig2023/cleaned-data/lending_loan/"
 
 # COMMAND ----------
