@@ -22,7 +22,7 @@ excellent_grade="A"
 # COMMAND ----------
 
 # Run call function varibles for getting all the paths 
-%run "/Lending_Club/adhoc/Call_functions_variables"
+%run "/Repos/Big_Data_Project/Lending_Club/adhoc/Call_functions_variables"
 
 # COMMAND ----------
 
