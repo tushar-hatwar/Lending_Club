@@ -30,38 +30,38 @@ if (status_loan == "executed loan job"):
 
 # COMMAND ----------
 
-status_loan=dbutils.notebook.run(f"{cleanedScript_folder_path}DataCleaning_Account",0)
+status_account= dbutils.notebook.run(f"{cleanedScript_folder_path}DataCleaning_Account",0)
 
 # COMMAND ----------
 
-if (status_loan == "executed account job"):
+if (status_account == "executed account job"):
     print("Lending loan account job completed successfully")
 
 # COMMAND ----------
 
-status_loan=dbutils.notebook.run(f"{cleanedScript_folder_path}DataCleaning_LoanDefaulters",0)
+status_loan_defaulters=dbutils.notebook.run(f"{cleanedScript_folder_path}DataCleaning_LoanDefaulters",0)
 
 # COMMAND ----------
 
-if (status_loan == "executed loan defaulters job"):
+if (status_loan_defaulters == "executed loan defaulters job"):
     print("Lending loan defaulters job completed successfully")
 
 # COMMAND ----------
 
-status_loan=dbutils.notebook.run(f"{cleanedScript_folder_path}DataCleaning_Payments",0)
+status_loan_Payments=dbutils.notebook.run(f"{cleanedScript_folder_path}DataCleaning_Payments",0)
 
 # COMMAND ----------
 
-if (status_loan == "executed payments job"):
+if (status_loan_Payments == "executed payments job"):
     print("Lending loan payments job completed successfully")
 
 # COMMAND ----------
 
-status_loan=dbutils.notebook.run(f"{cleanedScript_folder_path}DataCleaning_Investors",0)
+status_loan_Investor=dbutils.notebook.run(f"{cleanedScript_folder_path}DataCleaning_Investors",0)
 
 # COMMAND ----------
 
-if (status_loan == "executed investors job"):
+if (status_loan_Investor == "executed investors job"):
     print("Lending loan investors job completed successfully")
 
 # COMMAND ----------
