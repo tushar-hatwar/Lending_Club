@@ -51,3 +51,15 @@ else:
 # COMMAND ----------
 
 dbutils.notebook.exit("executed delete existing data job")
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC ## Delete Earlier Processed data 
+
+# COMMAND ----------
+
+if(dbutils.fs.rm(f"{cleanedFiles_file_path}account_details", True)):
+    print("Cleaned account details data")
+else:
+    print("No Data present to delete")
