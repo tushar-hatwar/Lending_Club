@@ -62,4 +62,19 @@ else:
 
 # COMMAND ----------
 
+# MAGIC %sql
+# MAGIC DROP DATABASE if exists lending_loan_dev CASCADE;
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC DROP DATABASE if exists lending_loan_e2e CASCADE;
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC DROP DATABASE if exists lending_loan_tmp CASCADE;
+
+# COMMAND ----------
+
 dbutils.notebook.exit("executed delete existing data job")

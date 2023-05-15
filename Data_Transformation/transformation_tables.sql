@@ -33,7 +33,7 @@ country STRING
 USING PARQUET
 LOCATION "/mnt/financestoragebig2023/cleaned-data/lending_loan/customer_details"
 
---Above table will read data from LOCATION
+--Above table will read data from LOCATION specified
 
 -- COMMAND ----------
 
