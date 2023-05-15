@@ -60,7 +60,7 @@ ON customer_counts.country = member_counts.country AND customer_counts.state = m
 
 -- COMMAND ----------
 
--- MAGIC %run "/Lending_Club/adhoc/Call_functions_variables"
+-- MAGIC %run "/Repos/Big_Data_Project/Lending_Club/adhoc/Call_functions_variables"
 
 -- COMMAND ----------
 

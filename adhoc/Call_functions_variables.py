@@ -12,7 +12,7 @@ processed_file_path="/mnt/financestoragebig2023/processed-data/pre-prod/lending_
 
 # COMMAND ----------
 
-cleanedScript_folder_path="/Lending_Club/Data_Cleaning/"  
+# cleanedScript_folder_path="/Lending_Club/Data_Cleaning/"  
 
 # COMMAND ----------
 

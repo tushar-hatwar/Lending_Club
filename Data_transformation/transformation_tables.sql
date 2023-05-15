@@ -4,7 +4,7 @@
 
 -- COMMAND ----------
 
--- MAGIC %run "/Lending_Club/adhoc/Call_functions_variables"
+-- MAGIC %run "/Repos/Big_Data_Project/Lending_Club/adhoc/Call_functions_variables"
 
 -- COMMAND ----------
 

@@ -3,7 +3,7 @@
 
 # COMMAND ----------
 
-clean_data=dbutils.notebook.run("/Lending_Club/adhoc/delete_data",0)
+clean_data=dbutils.notebook.run("/Repos/Big_Data_Project/Lending_Club/adhoc/delete_data",0)
 
 # COMMAND ----------
 
