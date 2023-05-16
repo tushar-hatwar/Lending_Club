@@ -28,7 +28,7 @@ from pyspark.sql.types import StructType, StructField, IntegerType, StringType
 
 # COMMAND ----------
 
-from pyspark.sql.functions import  concat, current_timestamp,sha2,col
+from pyspark.sql.functions import  concat, current_timestamp,sha2,col,regexp_replace
 
 # COMMAND ----------
 
@@ -97,6 +97,10 @@ customer_selected_df = customer_df_dbfs.select(col("cust_id"), col("mem_id"), co
 
 # COMMAND ----------
 
+customer_df.printSchema()
+
+# COMMAND ----------
+
 # MAGIC %md
 # MAGIC ### Rename the columns in the dataframe
 
@@ -107,9 +111,23 @@ customer_df_change=customer_df.withColumnRenamed("cust_id","customer_id") \
 .withColumnRenamed("mem_id","member_id") \
 .withColumnRenamed("fst_name","first_name") \
 .withColumnRenamed("lst_name","last_name") \
-.withColumnRenamed("prm_status","premium_status") \
+.withColumnRenamed("prm_status","premium_status") 
+
+# COMMAND ----------
+
+# string_to_remove="MEM"
+# # removing MEM from member_id   
+# # Use the regexp_replace function to remove the string from the column
+# customer_df_change = customer_df_change.withColumn("member_id", regexp_replace(customer_df_change["member_id"], string_to_remove, ""))
+
+# customer_df_change = customer_df_change.withColumn("member_id",customer_df_change.member_id.cast('integer')) 
 
 
+# COMMAND ----------
+
+customer_df_change.printSchema()
+# Display the resulting dataframe
+display(customer_df_change)
 
 # COMMAND ----------
 
@@ -167,7 +185,7 @@ display_df.write.options(header='True').mode("append").parquet(f"{cleanedFiles_f
 # COMMAND ----------
 
 #List the files inside the customers folder
-dbutils.fs.ls(f"{cleanedFiles_file_path}customer_details")
+display(dbutils.fs.ls(f"{cleanedFiles_file_path}customer_details"))
 
 # COMMAND ----------
 

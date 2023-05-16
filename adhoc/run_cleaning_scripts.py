@@ -3,11 +3,11 @@
 
 # COMMAND ----------
 
-clean_data=dbutils.notebook.run("/Repos/Big_Data_Project/Lending_Club/adhoc/delete_data",0)
+delete_clean_data=dbutils.notebook.run("/Repos/Big_Data_Project/Lending_Club/adhoc/delete_data",0)
 
 # COMMAND ----------
 
-if (clean_data == "executed delete existing data job"):
+if (delete_clean_data == "executed delete existing data job"):
     print("delete existing data if any job completed successfully")
 
 # COMMAND ----------

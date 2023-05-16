@@ -402,3 +402,7 @@ loan_score_final_modified.printSchema()
 # SELECT member_id, first_name, last_name, state, country, loan_score, loan_final_grade
 # FROM loan_final_table_casted;
 
+
+# COMMAND ----------
+
+
