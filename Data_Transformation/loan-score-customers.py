@@ -21,8 +21,7 @@ excellent_grade="A"
 
 # COMMAND ----------
 
-# Run call function varibles for getting all the paths 
-%run "/Repos/Big_Data_Project/Lending_Club/adhoc/Call_functions_variables"
+# MAGIC %run "/Repos/Big_Data_Project/Lending_Club/adhoc/Call_functions_variables"
 
 # COMMAND ----------
 
@@ -225,13 +224,19 @@ financial_df.printSchema()
 
 # COMMAND ----------
 
+financial_df.show()
+
+# COMMAND ----------
+
 loan_score = spark.sql("SELECT member_id, first_name, last_name, state, country, \
 ((last_payment_pts+total_payment_pts)*0.20) as payment_history_pts, \
 ((delinq_pts +public_records_pts+public_bankruptcies_pts+enq_pts+hardship_pts)*0.45) as defaulters_history_pts, \
 ((loan_status_pts+home_pts+credit_limit_pts+grade_pts)*0.35) as financial_health_pts \
 FROM loan_score_details")
 
+# COMMAND ----------
 
+loan_score.show()
 
 # COMMAND ----------
 
@@ -246,6 +251,10 @@ from loan_score_pts ls ")
 # COMMAND ----------
 
 loan_score_final.createOrReplaceTempView("loan_score_eval")
+
+# COMMAND ----------
+
+loan_score_final.show()
 
 # COMMAND ----------
 
@@ -280,7 +289,3 @@ spark.sql("select * from loan_final_table where loan_final_grade in ('B') ").sho
 
 # MAGIC %sql 
 # MAGIC SELECT * FROM lending_loan_e2e.customers_loan_score limit 1000;
-
-# COMMAND ----------
-
-
