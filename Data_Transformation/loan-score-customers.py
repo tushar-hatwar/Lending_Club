@@ -3,6 +3,10 @@
 
 # COMMAND ----------
 
+from pyspark.sql.functions import col, concat, current_timestamp,regexp_replace,lit,to_date,when,sha2
+
+# COMMAND ----------
+
 spark.conf.set("spark.sql.unacceptable_rated_pts",0)
 spark.conf.set("spark.sql.very_bad_rated_pts",100)
 spark.conf.set("spark.sql.bad_rated_pts",250)
@@ -283,6 +287,10 @@ loan_score_final.createOrReplaceTempView("loan_final_table")
 
 # COMMAND ----------
 
+loan_score_final.printSchema()
+
+# COMMAND ----------
+
 loan_score_final.toPandas()
 
 # COMMAND ----------
@@ -300,4 +308,97 @@ spark.sql("select * from loan_final_table where loan_final_grade in ('B') ").sho
 # COMMAND ----------
 
 # MAGIC %sql 
-# MAGIC SELECT * FROM lending_loan_e2e.customers_loan_score limit 1000;
+# MAGIC SELECT * FROM lending_loan_e2e.customers_loan_score limit 100;
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC drop table if exists lending_loan_e2e.customers_loan_score_partition;
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC CREATE EXTERNAL TABLE lending_loan_e2e.customers_loan_score_partition (
+# MAGIC   member_id String ,
+# MAGIC   first_name String,
+# MAGIC   last_name String,
+# MAGIC   state String,
+# MAGIC   country String,
+# MAGIC   loan_score DECIMAL(17, 4)
+# MAGIC )
+# MAGIC PARTITIONED BY (loan_final_grade string)
+# MAGIC LOCATION '/mnt/financestoragebig2023/processed-data/lending-loan/customer-transformations/customers_loan_grade_partition';
+# MAGIC
+# MAGIC -- Insert data into the external table from loan_final_table
+# MAGIC INSERT INTO TABLE lending_loan_e2e.customers_loan_score_partition
+# MAGIC PARTITION (loan_final_grade)
+# MAGIC SELECT member_id, first_name, last_name, state, country, loan_score, loan_final_grade
+# MAGIC FROM loan_final_table;
+
+# COMMAND ----------
+
+# MAGIC %sql 
+# MAGIC DESCRIBE extended lending_loan_e2e.customers_loan_score_partition ;
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC select count (distinct(member_id)) from lending_loan_e2e.customers_loan_score_partition2;
+
+# COMMAND ----------
+
+# MAGIC %sql 
+# MAGIC show partitions lending_loan_e2e.customers_loan_score_partition2;
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC ## cleaning the member_id column from loan_score_final_modified to perform bucketing operation 
+
+# COMMAND ----------
+
+string_to_remove="MEM"
+# removing MEM from member_id   
+# Use the regexp_replace function to remove the string from the column
+loan_score_final_modified = loan_score_final_modified.withColumn("member_id", regexp_replace(loan_score_final["member_id"], string_to_remove, ""))
+
+# Display the resulting dataframe
+display(loan_score_final_modified)
+
+
+# COMMAND ----------
+
+print("Schema Before casting ")
+loan_score_final_modified.printSchema()
+
+loan_score_final_modified = loan_score_final_modified.withColumn("member_id",loan_score_final_modified.member_id.cast('integer'))
+
+print("Schema After casting")
+loan_score_final_modified.printSchema()
+
+# COMMAND ----------
+
+# loan_score_final_modified.createOrReplaceTempView("loan_final_table_casted")
+
+# COMMAND ----------
+
+# %sql
+# -- Create the external table with bucketing
+# CREATE TABLE lending_loan_e2e.customers_loan_score_partition_bucketing (
+#   member_id INT,
+#   first_name STRING,
+#   last_name STRING,
+#   state STRING,
+#   country STRING,
+#   loan_score DECIMAL(10, 4)
+# )
+# PARTITIONED BY (loan_final_grade String)
+# CLUSTERED BY (member_id) INTO 4 BUCKETS
+# LOCATION '/mnt/financestoragebig2023/processed-data/lending-loan/customer-transformations/customers_loan_score_partition_bucketing';
+
+# -- Insert data into the bucketed table from loan_final_table
+# INSERT INTO TABLE lending_loan_e2e.customers_loan_score_partition_bucketing
+# PARTITION (loan_final_grade)
+# SELECT member_id, first_name, last_name, state, country, loan_score, loan_final_grade
+# FROM loan_final_table_casted;
+
