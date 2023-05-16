@@ -17,7 +17,7 @@ cleanedScript_folder_path="/Repos/Big_Data_Project/Lending_Club/Data_Cleaning/"
 
 # COMMAND ----------
 
-# Path Cleaned Files which are stored in Azure Blob Storage after Cleaning Process
+# Path of Cleaned Files which are stored in Azure Blob Storage after Cleaning Process
 cleanedFiles_file_path="/mnt/financestoragebig2023/cleaned-data/lending_loan/"
 
 # COMMAND ----------

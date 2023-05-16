@@ -56,7 +56,7 @@ else:
 # COMMAND ----------
 
 if(dbutils.fs.rm("/mnt/financestoragebig2023/processed-data/lending-loan", True)):
-    print("Cleaned account details data")
+    print("Cleaned Processed data")
 else:
     print("No Data present to delete")
 

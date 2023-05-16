@@ -12,6 +12,14 @@ spark.conf.set("spark.sql.excellent_rated_pts",800)
 
 # COMMAND ----------
 
+spark.conf.set("spark.sql.unacceptable_grade_pts",750)
+spark.conf.set("spark.sql.very_bad_grade_pts", 1000)
+spark.conf.set("spark.sql.bad_grade_pts",1500)
+spark.conf.set("spark.sql.good_grade_pts",2000)
+spark.conf.set("spark.sql.very_good_grade_pts",2500)
+
+# COMMAND ----------
+
 unacceptable_grade="F"
 very_bad_grade="E"
 bad_grade="D"
@@ -272,6 +280,10 @@ from loan_score_eval ls")
 # COMMAND ----------
 
 loan_score_final.createOrReplaceTempView("loan_final_table")
+
+# COMMAND ----------
+
+loan_score_final.toPandas()
 
 # COMMAND ----------
 

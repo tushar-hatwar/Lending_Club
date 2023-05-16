@@ -92,11 +92,16 @@ ON customer_counts.country = member_counts.country AND customer_counts.state = m
 -- COMMAND ----------
 
 -- MAGIC %py
+-- MAGIC customer_avg_age.show()
+
+-- COMMAND ----------
+
+-- MAGIC %py
 -- MAGIC customer_avg_age.createOrReplaceTempView("customers_avg_age")
 
 -- COMMAND ----------
 
-CREATE EXTERNAL TABLE lending_loan_e2e.customers_avg_age 
+CREATE EXTERNAL TABLE lending_loan_e2e.customers_avg_age
 USING PARQUET
 LOCATION '/mnt/financestoragebig2023/processed-data/lending-loan/customer-transformations/customers_avg_age'
 select * from customers_avg_age
