@@ -4,11 +4,15 @@
 
 # COMMAND ----------
 
-rawFiles_file_path="/mnt/financestoragebig2023/raw-data/lending_loan/"
+storage_account_name = "financestoragebig2023"
 
 # COMMAND ----------
 
-processed_file_path="/mnt/financestoragebig2023/processed-data/pre-prod/lending_loan/"
+rawFiles_file_path=f"/mnt/{storage_account_name}/raw-data/lending_loan/"
+
+# COMMAND ----------
+
+processed_file_path=f"/mnt/{storage_account_name}/processed-data/pre-prod/lending_loan/"
 
 # COMMAND ----------
 
@@ -18,7 +22,7 @@ cleanedScript_folder_path="/Repos/Big_Data_Project/Lending_Club/Data_Cleaning/"
 # COMMAND ----------
 
 # Path of Cleaned Files which are stored in Azure Blob Storage after Cleaning Process
-cleanedFiles_file_path="/mnt/financestoragebig2023/cleaned-data/lending_loan/"
+cleanedFiles_file_path=f"/mnt/{storage_account_name}/cleaned-data/lending_loan/"
 
 # COMMAND ----------
 
@@ -41,4 +45,4 @@ dbutils.notebook.entry_point.getDbutils().notebook().getContext().notebookPath()
 
 # COMMAND ----------
 
-# display(dbutils.fs.ls("/mnt/datasetbigdata/cleaned-data/lending_loan/account_details"))
+# display(dbutils.fs.ls(f"{cleanedFiles_file_path}account_details"))

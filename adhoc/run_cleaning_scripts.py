@@ -3,6 +3,11 @@
 
 # COMMAND ----------
 
+# MAGIC %md
+# MAGIC ## Run mount_adls_storage.py once to mount before running the cleaning scripts
+
+# COMMAND ----------
+
 delete_clean_data=dbutils.notebook.run("/Repos/Big_Data_Project/Lending_Club/adhoc/delete_data",0)
 
 # COMMAND ----------
