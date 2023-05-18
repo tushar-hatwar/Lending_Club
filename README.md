@@ -58,6 +58,8 @@ To set up the project, follow these steps:
 5. Execute the PySpark script in Azure Databricks to clean the data and write it back to Azure Data Lake in a cleaned format.
 6. Set up HIVE and execute queries to analyze the cleaned data.
 
+Link to dataset: https://drive.google.com/file/d/1yEwuDxKNPYGJU-h7uKl4wnnq1LKICnN8/view?usp=share_link
+
 ## Usage
 
 To use this project, follow these steps:
