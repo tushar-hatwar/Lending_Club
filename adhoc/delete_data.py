@@ -55,7 +55,7 @@ else:
 
 # COMMAND ----------
 
-if(dbutils.fs.rm("/mnt/financestoragebig2023/processed-data/lending-loan", True)):
+if(dbutils.fs.rm(f"/mnt/{storage_account_name}/processed-data/lending-loan", True)):
     print("Cleaned Processed data")
 else:
     print("No Data present to delete")
